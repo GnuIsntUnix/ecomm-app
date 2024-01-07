@@ -1,0 +1,23 @@
+.image-list {
+  justify-content: center;
+  display: flex;
+  overflow-x: auto;
+}
+
+.image-item {
+  flex: 0 0 auto;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+.card-footer{
+  background-color: transparent;
+}
+.product-image {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

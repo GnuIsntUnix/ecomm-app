@@ -1,0 +1,20 @@
+<div class="container" >
+  <div class="row row-cols-1 row-cols-md-4">
+    <div class="col mb-4" *ngFor="let product of products">
+      <div class="card h-100 d-flex flex-column" >
+        <div class="card-body d-flex flex-column justify-content-center">
+          <img class="product-image" [src]="product.thumbnail" alt="Product image">
+          <h5 class="card-title">{{product.title}}</h5>
+          <h6 class="card-text text">{{product.price}}$</h6>
+          <span style="font-weight: bolder" [ngStyle]="{color: getColor(product)}">{{getState(product)}}</span>
+        </div>
+        <div class="card-footer">
+<!--          <a class="btn btn-info" *ngIf="product.disponibilite; else nonDisponible" style="margin: 5px">Commander</a>-->
+          <a class="btn btn-primary" style="margin : 0 30px 0 0" routerLink="product_details/{{product.id}}" routerLinkActive="active">Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

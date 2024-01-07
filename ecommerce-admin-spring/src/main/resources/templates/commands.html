@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Commandes</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<table class="table table-responsive table-bordered">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Date</th>
+    <th scope="col">Details</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="commande: ${commandes}">
+    <td th:text="${commande.id}"></td>
+    <td th:text="${commande.dateCommande}"></td>
+    <td style="width: 1000px">
+      <ul>
+        <li th:each="detail: ${commande.detailsCommandes}" style="margin-bottom: 10px;">
+          <!-- Invoke the ProductService to get product details by ID -->
+          <span th:text="${@productService.getProductById(detail.product).title}" style="font-weight: bold; margin-right: 5px; display: inline-block;"></span>
+          <span th:text="'(' + ${detail.qte} + ')'" style="margin-left: 20px; display: inline-block;"></span>
+          <span th:text="${detail.qte}*${@productService.getProductById(detail.product).price}" style="margin-left: 20px; display: inline-block; color: green; font-weight: bolder"></span>
+        </li>
+      </ul>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

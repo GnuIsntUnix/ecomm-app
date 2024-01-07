@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registration Form</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/css/fontawesome.css}" rel="stylesheet">
+</head>
+<body>
+<h2>Registration Form</h2>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+<form th:action="@{addClient}" th:object="${client}" method="post">
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input type="text" th:field="*{firstName}" id="firstName" class="form-control" name="firstName" required>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+    <input type="text" th:field="*{lastName}" id="lastName" class="form-control" name="lastName" required>
+  </div>
+  <div class="form-group">
+    <label for="gender">Gender:</label>
+    <input type="text" th:field="*{gender}" id="gender" class="form-control" name="gender" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" th:field="*{email}" id="email" class="form-control" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone:</label>
+    <input type="text" th:field="*{phone}" id="phone" class="form-control" name="phone" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" th:field="*{password}" id="password" class="form-control" name="password" required>
+  </div>
+  <div class="form-group">
+    <label for="birthDate">Birth Date:</label>
+    <input type="date" th:field="*{birthDate}" id="birthDate" class="form-control" name="birthDate" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+</div>
+</body>
+</html>

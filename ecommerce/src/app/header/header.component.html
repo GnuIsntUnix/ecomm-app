@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar">
+      <li>
+        <a class = "nav-link" href="#" (click)="goToHome($event)">
+          <i class="bi-house" routerLinkActive="active" style="margin-left: 5px"> Catalogue</i>
+        </a>
+      </li>
+
+      <form class="d-flex" style="margin-left: 100px;">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  #searchInput>
+        <button class="btn btn-outline-success" type="button" (click)="search(searchInput.value)">Search</button>
+      </form>
+
+    </ul>
+    <ul class="navbar-nav ms-auto" style="margin-right: 30px">
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="goToCart($event)">
+          <i class="bi bi-cart"  routerLinkActive="active" ><span class="badge bg-danger" style="margin-left: 5px">{{getCount()}}</span></i>
+        </a>
+      </li>
+    </ul>
+
+
+
+    <ul class="navbar-nav" style="margin-right: 50px">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#">
+<!--          <a class="btn btn-primary" routerLinkActive="active" routerLink="/userLogin">Sign in</a>-->
+          <a class="btn btn-primary"  routerLinkActive="active" routerLink="/userLogin" *ngIf="!getAuthStatus() ; else elseBlock">Sign in</a>
+          <ng-template #elseBlock>
+              <div ngbDropdown>
+                <img class="rounded-circle img-fluid" src=""
+                        ngbDropdownToggle alt="Profile Picture">
+                <div ngbDropdownMenu="gfg">
+                  <button ngbDropdownItem (click)="goCommands()">Commandes</button>
+                  <button ngbDropdownItem (click)="goProfile()">Profile</button>
+                  <button ngbDropdownItem (click)="signOut()">Sign Out</button>
+                </div>
+              </div>
+          </ng-template>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

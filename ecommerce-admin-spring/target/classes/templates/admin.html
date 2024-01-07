@@ -1,0 +1,48 @@
+<html lang="en">
+
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Clients</title>
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    </head>
+
+    <body>
+        <table class="table table-responsive table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="client: ${clients}">
+                <td th:text="${client.id}"></td>
+                <td th:text="${client.firstName}"></td>
+                <td th:text="${client.lastName}"></td>
+                <td th:text="${client.gender}"></td>
+                <td th:text="${client.username}"></td>
+                <td th:text="${client.phone}"></td>
+                <td style="width: 300px">
+                    <a th:href="@{editClient/{id}(id=${client.id})}" type="button" class="btn btn-primary" >
+                        Edit
+                    </a>
+                    <a th:href="@{deleteClient/{id}(id=${client.id})}" type="button" class="btn btn-danger">
+                        Delete
+                    </a>
+                    <a th:href="@{/clients/{id}/commandes(id=${client.id})}" type="button" class="btn btn-info">
+                        Commandes
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </body>
+
+
+</html>
